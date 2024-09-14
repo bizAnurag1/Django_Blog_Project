@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sample HTML</title>
+</head>
+<body>
+    {% extends "sec_app/base.html" %}
+    {% load static %}
+
+    {% block css %}
+    <link rel = "stylesheet" href = "{% static 'css/home.css' %}">
+    {% endblock css %}
+
+    {% block body %}
+    <header>
+        <h1>Welcome to Author Page</h1>
+    </header>
+    
+    {% for author in authors %}
+    <h3><a href="{% url 'author_blog' author.id %}">{{author.name}}</a></H3>
+    <hr>
+    {% endfor %}
+
+    <footer>
+        <p>&copy; 2024 My Website</p>
+    </footer>
+    {% endblock body %}
+</body>
+</html>

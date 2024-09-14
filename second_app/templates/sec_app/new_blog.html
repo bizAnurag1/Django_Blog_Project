@@ -1,0 +1,32 @@
+{% extends "sec_app/base.html" %}
+{% load static %}
+
+{% block css %}
+<link rel = "stylesheet" href = "{% static 'css/home.css' %}">
+{% endblock css %}
+
+{% block body %}
+<h1>New Blog Page</h1>
+<form method="post" action="{% url 'new_blog' %}">
+    {% csrf_token %}
+    <label for="title">Blog Title:</label>
+    <input type="text" id="title" name="blog_title"><br><br>
+
+    <label for="author"> Author:</label>
+    <select id="author" name="author_id" required>
+        <option selected disabled value="">Select Author</option>
+        {% for author in all_authors %}
+        <option value="{{author.id}}">{{author.name}}</option>
+        {% endfor %}
+    </select><br><br>
+    <label for="blog_text"> Blog Text:</label>
+    <textarea id ="blog_text" name="blog_text"></textarea>
+
+    <input type="submit" value="save">
+</form>
+
+
+
+
+
+{% endblock body %}

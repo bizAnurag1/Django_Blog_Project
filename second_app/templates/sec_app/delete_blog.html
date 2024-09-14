@@ -1,0 +1,16 @@
+{% extends "sec_app/base.html" %}
+{% load static %}
+
+{% block css %}
+<link rel = "stylesheet" href = "{% static 'css/home.css' %}">
+{% endblock css %}
+
+{% block body %}
+<h1>Delete Blog</h1>
+<form method="post" >
+    {% csrf_token %}
+    <p> Delete this Blog? {{blog.title}}</p>
+    <input type="submit" value="Delete">
+</form>
+
+{% endblock body %}

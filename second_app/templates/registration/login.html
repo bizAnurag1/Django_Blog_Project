@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% extends "sec_app/base.html" %}
+    {% load static %}
+
+    {% block css %}
+    <link rel = "stylesheet" href = "{% static 'css/home.css' %}">
+    {% endblock css %}
+
+    {% block body %}
+    <header>
+        <h1>Login Page</h1>
+    </header>
+    <form method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="Submit" value="Login">
+    </form>
+
+    {% endblock body %}
+</body>
+</html>

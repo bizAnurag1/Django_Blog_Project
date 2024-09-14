@@ -1,0 +1,17 @@
+{% extends "sec_app/base.html" %}
+{% load static %}
+
+{% block css %}
+<link rel = "stylesheet" href = "{% static 'css/home.css' %}">
+{% endblock css %}
+
+{% block body %}
+<h1>New Blog Page Create View</h1>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <input type="submit" value="save">
+</form>
+
+{% endblock body %}

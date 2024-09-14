@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<body>
+    <h1>Welcome to my Django Project</h1>
+    {% comment %} <img src="https://cdn3.vectorstock.com/i/1000x1000/10/32/welcome-banner-with-colorful-confetti-vector-17261032.jpg" width="500" height="300"> {% endcomment %}
+    <hr>Information<hr>
+    {% for info in infos %}
+    <p>Name: {{info.name}}</p>
+    <p>Designation: {{info.designation}}</p>
+    <p>Age: {{info.age}}</p>
+    <p>Mobile No.: {{info.mobile}}</p>
+    <hr>
+    {% endfor %}
+</body>
+</html>

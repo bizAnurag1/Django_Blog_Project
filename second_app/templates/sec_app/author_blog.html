@@ -1,0 +1,21 @@
+{% extends "sec_app/base.html" %}
+{% block body %}
+{% load static %}
+
+    {% block css %}
+    <link rel = "stylesheet" href = "{% static 'css/home.css' %}">
+    {% endblock css %}
+<body>
+    <h3>{{author_details.name}}</h3>
+    <i>{{author_details.genre}}</i>
+    <p>{{author_details.email}}</p>
+    <hr>
+    <hr>
+    {% for blog in author_blog %}
+    <h3><a href="{% url 'detailed_blog' blog.id %}">{{blog.title}}</a></h3>
+    <hr>
+    {% endfor %}
+
+</Body>
+
+{% endblock body %}

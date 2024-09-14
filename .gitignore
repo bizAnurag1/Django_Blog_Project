@@ -1,0 +1,4 @@
+.myenv/
+**/migrations/*
+*.sqlite3
+sample/settings.py

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sample HTML</title>
+</head>
+<body>
+    {% extends "sec_app/base.html" %}
+    {% load static %}
+
+    {% block css %}
+    <link rel = "stylesheet" href = "{% static 'css/home.css' %}">
+    {% endblock css %}
+
+    {% block body %}
+    <header>
+        <h1>Welcome to My Website</h1>
+    </header>
+    
+    {% for blog in all_blogs %}
+    <h3><a href="{% url 'detailed_blog' blog.id %}">{{blog.title}}</a></H3>
+    <p>{{blog.date.date}}</p>
+    <i><a href="{% url 'author_blog' blog.author.id %}">{{blog.author}}</a></i>
+    <p>{{blog.blog_text|truncatechars:100}}</p>
+    <hr>
+    <br>
+    {% endfor %}
+
+    <footer>
+        <p>&copy; 2024 My Website</p>
+    </footer>
+    {% endblock body %}
+</body>
+</html>

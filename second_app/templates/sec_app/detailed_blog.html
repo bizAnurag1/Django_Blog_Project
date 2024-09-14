@@ -1,0 +1,21 @@
+{% extends "sec_app/base.html" %}
+{% block body %}
+
+<h3>{{blog.title}}</h3>
+<b>Author: </b><i>{{blog.author}}</i>
+<p>{{blog.blog_text}}</p>
+<b>Comments:</b>
+<ul>
+    {% for i in comments %}
+        <li>{{ forloop.counter }}. <b>{{ i.name }}</b>:  {{ i.comment }}</li>
+    {% endfor %}
+</ul>
+{% if blog.image %}
+    <img src="{{blog.image.url}}" style="height:400px; width:600px;">
+    <a href="{{blog.image.url}}" download>Download</a> |
+{% endif %}
+
+<a href="{% url 'edit_blog' blog.pk %}"> Edit This Blog</a> |
+<a href="{% url 'delete_blog' blog.pk %}"> Delete This Blog</a> |
+<a href="{% url 'add_comment' %}"> Add Comment</a> 
+{% endblock body %}
